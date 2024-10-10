@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FParticle</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            height: 100vh;
+        }
+        .particle-system {
+            position: relative;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="particles-js-1" class="particle-system"></div>
+        <div id="particles-js-2" class="particle-system"></div>
+        <div id="particles-js-3" class="particle-system"></div>
+        <div id="particles-js-4" class="particle-system"></div>
+    </div>
+
+    <script>
+    const confetti = [
+            {
+               particles: {
+                    number: { value: 80 },
+                    color: { value: "#0000ff" },
+                    shape: { type: "circle" },
+                    move: { enable: true, speed: 3, direction: "top"}
+                }
+            },
+            {
+                particles: {
+                    number: { value: 100 },
+                    color: { value: "#800080" },
+                    shape: { type: "triangle" },
+                    move: { enable: true, speed: 2, direction: "top" }
+                }
+            },
+            {
+                particles: {
+                    number: { value: 60 },
+                    color: { value: "#00ff00" },
+                    shape: { type: "star" },
+                    move: { enable: true, speed: 4, direction: "none", out_mode: "bounce" }
+                }
+            },
+            {
+                particles: {
+                    number: { value: 120 },
+                    color: { value: "#0000ff" },
+                    shape: { type: "polygon", polygon: { nb_sides: 6 } },
+                    move: { enable: true, speed: 1, direction: "bottom" }
+                }
+            }
+        ];
+
+        for (let i = 1; i <= 4; i++) {
+            particlesJS(`particles-js-${i}`, confetti[i-1]);
+        }
+    </script>
+</body>
+</html>
